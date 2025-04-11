@@ -1,0 +1,18 @@
+
+<section class="flex flex-row gap-2 mt-2">
+    @for (item of regions; track $index) {
+        <button class="btn btn-outline"
+            [class.btn-primary]="region() === item"
+            (click)="region.set(item)" >{{ item }}</button>
+    }
+</section>
+
+
+
+<country-list
+    [countries]="countryResource.value() ?? []"
+    [errorMessage]="countryResource.error()"
+    [isEmpty]="countryResource.value()?.length === 0"
+    [isLoading]="countryResource.isLoading()"
+/>
+

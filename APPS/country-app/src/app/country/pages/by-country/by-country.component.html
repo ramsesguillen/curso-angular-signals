@@ -1,0 +1,17 @@
+<section class="flex flex-row gap-2 mt-2">
+    <country-search-input
+        placeholder="Buscar por país"
+        (value)="query.set($event)"
+        [debounceTime]="600"
+        [initialValue]="query()"
+    />
+</section>
+
+
+
+<country-list
+    [countries]="countryResource.value() ?? []"
+    [errorMessage]="countryResource.error()"
+    [isEmpty]="countryResource.value()?.length === 0"
+    [isLoading]="countryResource.isLoading()"
+/>
